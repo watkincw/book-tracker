@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('./config/connection.js');
-const apiRoutes = require('./controllers/apiRoutes');
-const htmlRoutes = require('./controllers/htmlRoutes');
+// const apiRoutes = require('./controllers/apiRoutes');
+// const htmlRoutes = require('./controllers/htmlRoutes');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
