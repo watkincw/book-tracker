@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-      });
-  });
+    });
+});
 
 // GET /api/users/1
 router.get('/:id', (req, res) => {
@@ -42,16 +42,38 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err => {
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
-        });
+    });
 });
+
+router.post('/login', (req, res) => {
+    // expects {username: 'Someone', email: 'Someone@gmail.com', password: 'Password1234'}
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({ message: 'No user found with that email address!' });
+            return;
+        }
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        }
+        res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });  
+});  
 
 // PUT /api/users/1
 router.put('/:id', (req, res) => {
     User.update(req.body, {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
@@ -67,7 +89,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-  });
+});
 
 // DELETE /api/users/1
 router.delete('/:id', (req, res) => {  
