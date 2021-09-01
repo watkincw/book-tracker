@@ -7,9 +7,30 @@ const sequelize = require('../config/connection');
 class User extends Model {
     // set up method to run on instance data (per user) to check password
     checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
+        return bcrypt.compare(loginPw, this.password, function(err, result) {
+            // result == true
+        });
     }
-}
+};
+
+    // sync Password like the one in our lesson
+                // checkPassword(loginPw) {
+                //     return bcrypt.compareSync(loginPw, this.password);
+                
+                // Documentation
+                //     // bcrypt.compareSync(myPlaintextPassword, hash); // true
+                //     // bcrypt.compareSync(someOtherPlaintextPassword, hash); // false
+    // async Password is recommended
+
+                // Documentation
+                    // bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+                    //     // result == true
+                    // });
+                    // bcrypt.compare(someOtherPlaintextPassword, hash, function(err, result) {
+                    //     // result == false
+                    // });
+
+
 
 User.init(
     {
@@ -43,12 +64,18 @@ User.init(
         hooks: {
             // set up beforeCreate lifecycle "hook" functionality
             async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                newUserData.password = await bcrypt.hash(newUserData.password, 10, function(err, hash) {
+                    // Store hash in your password DB.
+
+                });
                 return newUserData;
             },
             // set up beforeUpdate lifecycle "hook" functionality
             async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10, function(err, hash) {
+                    // Store hash in your password DB.
+
+                });
                 return updatedUserData;
             }
         },
@@ -59,3 +86,5 @@ User.init(
         modelName: 'user'
     }
 );
+
+module.exports = User;
