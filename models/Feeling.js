@@ -1,17 +1,21 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// Create WishListBook model
-class WishListBook extends Model { }
+// Create Feeling model
+class Feeling extends Model { }
 
 // Define table columns and configuration
-WishListBook.init(
+Feeling.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
+    },
+    type: { // acceptable values: 'like', 'dislike', or 'wish'
+      type: DataTypes.STRING,
+      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -35,8 +39,8 @@ WishListBook.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: `wish_list_book`
+    modelName: 'feeling'
   }
 );
 
-module.exports = WishListBook;
+module.exports = Feeling;

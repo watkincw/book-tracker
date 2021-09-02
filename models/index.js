@@ -1,25 +1,48 @@
-// import all models
+// import models
 const User = require('./User');
 const Book = require('./Book');
-/* The models Likes, Dislikes, and WishList have identical attributes: id, user_id, and book_id.
-This code could be refactored to create a parent class of these models. */
-const LikedBook = require('./LikedBook');
-const DislikedBook = require('./DislikedBook');
-const WishListBook = require('./WishListBook');
+const Feeling = require('./Feeling'); // through table
 
 // create associations
 User.hasMany(Book, {
-    foreignKey: 'user_id'
+  foreignKey: 'user_id'
 });
 
 Book.belongsTo(User, {
-    foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
 });
 
-// LikedBook
+User.belongsToMany(Book, {
+  through: Feeling,
+  as: 'feelings',
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
 
-// DislikedBook
+Book.belongsToMany(User, {
+  through: Feeling,
+  as: 'feelings',
+  foreignKey: 'book_id',
+  onDelete: 'SET NULL'
+});
 
-// WishListBook
+Feeling.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
 
-module.exports = { User, Book, LikedBook, DislikedBook, WishListBook };
+Feeling.belongsTo(Book, {
+  foreignKey: 'book_id',
+  onDelete: 'SET NULL'
+});
+
+User.hasMany(Feeling, {
+  foreignKey: 'user_id'
+});
+
+Book.hasMany(Feeling, {
+  foreignKey: 'book_id'
+});
+
+module.exports = { User, Book, Feeling };
