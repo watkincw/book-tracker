@@ -4,14 +4,19 @@ const Book = require('./Book');
 const Feeling = require('./Feeling'); // through table
 
 // create associations
-User.hasMany(Book, {
-  foreignKey: 'user_id'
-});
 
-Book.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
-});
+/* In HasMany associations, the foreign key always exists on the target model (Book).
+Book is not going to have a foreign key of user_id, as a Book can be associated with many Users. */
+// User.hasMany(Book, {
+//   foreignKey: 'user_id'
+// });
+
+/* BelongsTo is used in 1:1 relations where the foreign key exists on the source model (Book).
+Book is not going to have a foreign key of user_id, as a Book can be associated with many Users. */
+// Book.belongsTo(User, {
+//   foreignKey: 'user_id',
+//   onDelete: 'SET NULL'
+// });
 
 User.belongsToMany(Book, {
   through: Feeling,
