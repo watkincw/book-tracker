@@ -19,7 +19,6 @@ Feeling.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'user',
         key: 'id'
@@ -27,7 +26,6 @@ Feeling.init(
     },
     book_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'book',
         key: 'isbn'
