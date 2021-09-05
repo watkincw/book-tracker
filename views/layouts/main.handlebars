@@ -2,11 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Tracker</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Book Tracker</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
+<header>
+    <h1>
+        <a href="/">Book Tracker</a>
+    </h1>
+    <nav>
+        {{#if loggedIn}}
+	<button id="logout" class="btn-no-style">logout</button>
+	{{else}}
+        <a href="/login">login</a>
+	{{/if}}
+    </nav>
+</header>
 
 <body>
     <div class="wrapper">
@@ -31,9 +44,17 @@
             Keep on reading!
         </footer>
     </div>
+<<<<<<< HEAD
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
+=======
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
+
+>>>>>>> develop
 </body>
 
 </html>
