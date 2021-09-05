@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const dashboardRoutes = require('./dashboard-routes.js');
 
 const dataRoutes = require('./api/');
 const htmlRoutes = require('./home-routes');
@@ -8,5 +9,9 @@ router.use('/', htmlRoutes);
 // localhost:/3001/api
 router.use('/api', dataRoutes);
 // everything behind here should be data based. therefore res.json()
+router.use('/dashboard', dashboardRoutes);
+
+
+
 
 module.exports = router;

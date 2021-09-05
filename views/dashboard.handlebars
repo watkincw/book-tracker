@@ -3,13 +3,18 @@
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
+      <label for="post-title">Book Title</label>
       <input type="text" id="post-title" name="post-title" />
+        {{!-- add in radio buttons - <like> <dislike> <wish> --}}
+
     </div>
-    <div>
+    {{!-- <div>
       <label for="post-url">Link</label>
       <input id="post-url" name="post-url" />
-    </div>
+    </div> --}}
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
+
+<script src="../seeds/book-seeds.js"></script>
+<script src="../seeds/feeling-seeds.js"></script>
