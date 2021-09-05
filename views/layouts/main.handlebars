@@ -2,39 +2,38 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Just Tech News</title>
-	<link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tracker</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-
-<header>
-    <h1>
-        <a href="/">Book Tracker</a>
-    </h1>
-    <nav>
-        <button id="logout" class="btn-no-style">logout</button>
-        <a href="/login">login</a>
-    </nav>
-</header>
 
 <body>
     <div class="wrapper">
         <header>
-        <h1>
-            <a href="/">Book Tracker</a>
-        </h1>
+            <h1>
+                <a href="/">Book Tracker</a>
+            </h1>
+            <nav>
+                {{#if loggedIn}}
+                <a href="/dashboard/">Dashboard</a>
+                <button id="logout" class="btn-no-style">Logout</button>
+                {{else}}
+                <a href=""></a>
+                <a href="/login">Login</a>
+                {{/if}}
+            </nav>
         </header>
-    <main>
-        {{{ body }}}
+        <main>
+            {{{ body }}}
         </main>
         <footer>
             Keep on reading!
         </footer>
     </div>
-
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
-
-
