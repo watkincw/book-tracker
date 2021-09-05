@@ -15,6 +15,7 @@ async function loginHandler(event) {
         });
 
         if (response.ok) {
+            alert('we got signed in');
             document.location.replace('/dashboard/');
         } else {
             alert(response.statusText);

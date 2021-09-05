@@ -65,15 +65,20 @@ router.post('/login', (req, res) => {
         }
     })
     .then(dbUserData => {
+        console.log('user was searched for via login')
         if (!dbUserData) {
+            console.log('user not found')
             res.status(400).json({ message: 'No user found with that email address!' });
             return;
         }
+        console.log('user found, checking password')
         const validPassword = dbUserData.checkPassword(req.body.password);
         if (!validPassword) {
+            console.log('password invalid')
             res.status(400).json({ message: 'Incorrect password!' });
             return;
         }
+        console.log('have a groovy time')
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
@@ -82,7 +87,6 @@ router.post('/login', (req, res) => {
         });
     });  
 });  
-
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
