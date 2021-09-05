@@ -1,4 +1,10 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { Book, Feeling, User } = require('../models');
+// are current subaddress //localhost:3001/
+
+//only res.render routers here!!!!
+
 
 router.get('/', (req, res) => {
     console.log(req.session);
@@ -8,7 +14,7 @@ router.get('/', (req, res) => {
         author: 'Someone Special',
     })
 });
-
+//localhost:3001/login
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

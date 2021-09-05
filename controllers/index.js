@@ -1,9 +1,12 @@
 const router = require('express').Router();
 
-const apiRoutes = require('./api/');
-const homeRoutes = require('./home-routes');
-
-router.use('/', homeRoutes);
-router.use('/api', apiRoutes);
+const dataRoutes = require('./api/');
+const htmlRoutes = require('./home-routes');
+//localhost:3001/
+router.use('/', htmlRoutes);
+//everything behind html routes should use our handlebars renderer--- res.render('template', {data})
+// localhost:/3001/api
+router.use('/api', dataRoutes);
+// everything behind here should be data based. therefore res.json()
 
 module.exports = router;
