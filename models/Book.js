@@ -8,7 +8,7 @@ class Book extends Model {}
 Book.init(
   {
     isbn: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true
     },

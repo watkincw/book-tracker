@@ -25,7 +25,7 @@ Feeling.init(
       }
     },
     book_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       references: {
         model: 'book',
         key: 'isbn'
