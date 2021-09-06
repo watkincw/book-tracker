@@ -9,7 +9,7 @@ const { Book, Feeling, User } = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
     res.render('homepage', {
-        isbn: 1234567890,
+        isbn: '1234567890',
         title: 'Handlebars Docs',
         author: 'Someone Special',
     })
