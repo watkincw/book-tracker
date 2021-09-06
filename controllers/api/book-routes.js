@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Book.findOne({
     where: {
-      id: req.params.id
+      isbn: req.params.id
     }
   })
     .then(dbBookData => {
