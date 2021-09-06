@@ -5,7 +5,40 @@ const { Book, User, Feeling } = require('../models');
 
 
 router.get ('/', (req, res) => {
-    res.render('dashboard', { loggedIn: true });
+    Book.findAll({
+        where: {
+            // use the ID from the session
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'title',
+            'isbn',
+            'author'
+        ],
+        include: [
+            {
+                model: Feeling,
+                attributes: ['id', 'type', 'user_id', 'book_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then (dbBookData => {
+        // serialize data before passing to template
+        const books = dbBookData.map(book => book.get({ plain: true }));
+        res.render('dashboard', { books, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;

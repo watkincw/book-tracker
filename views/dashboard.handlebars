@@ -1,20 +1,42 @@
 <section>
-  <h2>Create New Book Review</h2>
+  <h2>Add book</h2>
 
-  <form class="new-post-form">
+  <form class="new-book-form">
     <div>
-      <label for="post-title">Book Title</label>
-      <input type="text" id="post-title" name="post-title" />
-        {{!-- add in radio buttons - <like> <dislike> <wish> --}}
+        <label for="book-title">Book Title</label>
+        <input type="text" id="book-title" name="book-title" />
+        <label for="book-isbn">ISBN</label>
+        <input type="text" id="book-isbn" name="book-isbn" /><br>
+        
+        <input type="radio" id="like" name="rating" value="like">
+        <label for="like">Loved It!</label>
+        <input type="radio" id="dislike" name="rating" value="dislike">
+        <label for="dislike">Bad Book</label>
+        <input type="radio" id="wish" name="rating" value="wish">
+        <label for="wish">Wish to Read</label> <br>
 
+        <label for="book-review">Book Review</label>
+        <input type="text" id="book-review" name="book-review" />
     </div>
-    {{!-- <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div> --}}
-    <button type="submit" class="btn">Create</button>
+
+    <button type="submit" class="btn">Add it in!</button>
   </form>
 </section>
 
+{{#if book.length}}
+<section>
+  <h2>Your Books</h2>
+  <ol>
+    {{#each books as |book|}}
+    <li>
+      {{> book-info book}}
+      <a href="/dashboard/edit/{{book.id}}" class="edit-link">Edit Book</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
 <script src="../seeds/book-seeds.js"></script>
 <script src="../seeds/feeling-seeds.js"></script>
+<script src="/js/add-book.js"></script>
