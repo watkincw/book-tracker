@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "seeds": "node seeds/index.js",
     "start": "node server.js"
   },
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.3.4",
+    "jest": "^27.1.0",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.9"
   }
