@@ -19,7 +19,7 @@ router.get ('/', withAuth, (req, res) => {
         include: [
             {
                 model: Feeling,
-                attributes: ['id', 'type', 'user_id', 'book_id'],
+                attributes: ['id', 'type', 'user_id', 'book_isbn'],
                 include: {
                     model: User,
                     attributes: ['username']
