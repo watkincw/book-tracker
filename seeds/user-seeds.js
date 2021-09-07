@@ -4,12 +4,14 @@ const userData = [
   {
     username: 'nobody',
     email: 'nobody@special.com',
-    password: '12345'
+    password: '$2b$10$if8EIPwcTmFc13eaYnYP4eH.QoEBrbsKUPBXtZKZE3spl2tiEvvBO'
+    // 12345 => $2b$10$if8EIPwcTmFc13eaYnYP4eH.QoEBrbsKUPBXtZKZE3spl2tiEvvBO
   },
   {
     username: 'somebody',
     email: 'somebody@special.com',
-    password: 'abcde'
+    password: '$2b$10$8cGD.gE2OHom5ptujbkLs.ys9tl9RX8joItlgcE8L/SkmMBICLSqy'
+    // 'abcde' => $2b$10$8cGD.gE2OHom5ptujbkLs.ys9tl9RX8joItlgcE8L/SkmMBICLSqy
   },
   {
     username: 'cutie',
@@ -34,7 +36,8 @@ const userData = [
   {
     username: 'godmother',
     email: 'godmother@fairy.com',
-    password: 'Wish*'
+    password: '$2b$10$GjxkuzsLmHw7GKsMZT3tGusRu8O7x6S5L3tLNMLJKxzLvLB6tRR8e'
+    // Wish* => $2b$10$GjxkuzsLmHw7GKsMZT3tGusRu8O7x6S5L3tLNMLJKxzLvLB6tRR8e
   },
   {
     username: 'boblahblah',
