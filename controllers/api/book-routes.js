@@ -42,13 +42,13 @@ router.get('/:id', (req, res) => {
    AND Feeling.user_id = ? */
 router.get('/users/:id/likes', (req, res) => {
   Book.findAll({
-    include: {
+    include: [{
       model: Feeling,
       where: {
         type: 'like',
         user_id: req.params.id
       }
-    }
+    }]
   })
   .then(dbBookData => {
     if (!dbBookData) {
@@ -70,13 +70,13 @@ router.get('/users/:id/likes', (req, res) => {
    AND Feeling.user_id = ? */
 router.get('/users/:id/dislikes', (req, res) => {
   Book.findAll({
-    include: {
+    include: [{
       model: Feeling,
       where: {
         type: 'dislike',
         user_id: req.params.id
       }
-    }
+    }]
   })
   .then(dbBookData => {
     if (!dbBookData) {
@@ -98,13 +98,13 @@ router.get('/users/:id/dislikes', (req, res) => {
    AND Feeling.user_id = ? */
 router.get('/users/:id/wishes', (req, res) => {
   Book.findAll({
-    include: {
+    include: [{
       model: Feeling,
       where: {
         type: 'wish',
         user_id: req.params.id
       }
-    }
+    }]
   })
   .then(dbBookData => {
     if (!dbBookData) {

@@ -6,14 +6,12 @@ const Feeling = require('./Feeling'); // through table
 // create associations
 User.belongsToMany(Book, {
   through: Feeling,
-  as: 'feelings',
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
 Book.belongsToMany(User, {
   through: Feeling,
-  as: 'feelings',
   foreignKey: 'book_isbn',
   onDelete: 'SET NULL'
 });
