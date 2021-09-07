@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Book, User, Feeling } = require('../models');
+const withAuth = require('../utils/auth');
 //localhost:3001/api/dashboard subaddress
 
 
-router.get ('/', (req, res) => {
+router.get ('/', withAuth, (req, res) => {
     Book.findAll({
         where: {
             // use the ID from the session
