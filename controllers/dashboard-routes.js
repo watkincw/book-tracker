@@ -6,10 +6,16 @@ const withAuth = require('../utils/auth');
 
 router.post('/', withAuth, (req, res) => {
   Book.create({
-    title: req.body.title,
     isbn: req.body.isbn,
+    title: req.body.title,
     author: req.body.author,
-    user_id: req.session.user_id
+  })
+  Feeling.create({
+    // id: Automatically created using autoIncrement
+    type: req.body.feeling,
+    user_id: req.session.user_id,
+    book_isbn: req.body.isbn, 
+    review: req.body.review
   })
     .then(dbBookData => res.json(dbBookData))
     .catch(err => {
