@@ -46,18 +46,47 @@
 {{/if}}
 
 {{!-- likes --}}
+{{#if feeling.type = 'like' }} {{!-- If we have any feelings in the database that = like --}}
 <section>
-
+<h2>Books I Like</h2>
+<ol>
+  {{#each books as |book|}} {{!-- we will loop through the book list in the database --}}
+  <li>
+    {{book.title}} {{!-- Each Book Title will be listed in the section --}}
+  </li>
+  {{/each}}
+</ol>
 </section>
+{{/if}}
 
 {{!-- dislikes --}}
+{{#if feeling.type = 'dislike' }} {{!-- If we have any feelings in the database that = dislike --}}
 <section>
-
+<h2>Books I Dislike</h2>
+<ol>
+  {{#each books as |book|}} {{!-- we will loop through the book list in the database --}}
+  <li>
+    {{book.title}} {{!-- Each Book Title will be listed in the section --}}
+  </li>
+  {{/each}}
+</ol>
 </section>
+{{/if}}
 
-{{!-- wish list --}}
+
+{{!-- Wishes --}}
+{{#if feeling.type = 'wish' }} {{!-- If we have any feelings in the database that = wish --}}
 <section>
-
+<h2>Books I Would Like To Read</h2>
+<ol>
+  {{#each books as |book|}} {{!-- we will loop through the book list in the database --}}
+  <li>
+    {{book.title}} {{!-- Each Book Title will be listed in the section --}}
+  </li>
+  {{/each}}
+</ol>
 </section>
+{{/if}}
+
 
 <script src="/js/add-book.js"></script>
