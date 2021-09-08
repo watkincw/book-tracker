@@ -2,12 +2,20 @@ async function newFormHandler(event) {
   event.preventDefault();
   console.log('You clicked a button.');
 
-  const title = document.querySelector('input[name="title"]').value;
+  const title = document.querySelector('input[name="book-title"]').value;
+  const isbn = document.querySelector('input[name="book-isbn"]').value;
+  const author = document.querySelector('input[name="book-author"]').value;
+  const feeling = document.querySelector('input[name="book-feeling"]:checked').value;
+  const review = document.querySelector('input[name="book-review"]').value;
 
   const response = await fetch('/dashboard', {
     method: 'POST',
     body: JSON.stringify({
-      title
+      title,
+      isbn,
+      author,
+      feeling,
+      review
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -21,4 +29,4 @@ async function newFormHandler(event) {
   }
 }
 
-document.querySelector('#btn').addEventListener('submit', newFormHandler);
+document.querySelector('.new-book-form').addEventListener('submit', newFormHandler);
