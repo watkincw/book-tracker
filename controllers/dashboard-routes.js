@@ -4,8 +4,21 @@ const { Book, User, Feeling } = require('../models');
 const withAuth = require('../utils/auth');
 //localhost:3001/dashboard subaddress
 
+router.post('/', withAuth, (req, res) => {
+  Book.create({
+    title: req.body.title,
+    isbn: req.body.isbn,
+    author: req.body.author,
+    user_id: req.session.user_id
+  })
+    .then(dbBookData => res.json(dbBookData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-router.get ('/', withAuth, (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Book.findAll({
     include: {
       model: Feeling,
@@ -33,15 +46,15 @@ router.get ('/', withAuth, (req, res) => {
       }
     }
   })
-    .then (dbBookData => {
-        // serialize data before passing to template
-        const books = dbBookData.map(book => book.get({ plain: true }));
-        // console.log(dbBookData);
-        res.render('dashboard', { books, loggedIn: true });
+    .then(dbBookData => {
+      // serialize data before passing to template
+      const books = dbBookData.map(book => book.get({ plain: true }));
+      // console.log(dbBookData);
+      res.render('dashboard', { books, loggedIn: true });
     })
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 

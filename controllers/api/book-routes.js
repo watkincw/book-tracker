@@ -33,8 +33,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// The 3 routes below will likely need to be moved to user-routes.js.
-
 // GET liked books for a given user
 /* SELECT * FROM Book
    INNER JOIN Feeling ON Book.isbn = Feeling.book_id

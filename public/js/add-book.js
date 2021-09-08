@@ -1,9 +1,10 @@
 async function newFormHandler(event) {
   event.preventDefault();
+  console.log('You clicked a button.');
 
   const title = document.querySelector('input[name="title"]').value;
 
-  const response = await fetch(`/api/books`, {
+  const response = await fetch('/dashboard', {
     method: 'POST',
     body: JSON.stringify({
       title
@@ -20,4 +21,4 @@ async function newFormHandler(event) {
   }
 }
 
-document.querySelector('.new-book-form').addEventListener('submit', newFormHandler);
+document.querySelector('#btn').addEventListener('submit', newFormHandler);
