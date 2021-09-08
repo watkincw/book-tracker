@@ -1,8 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 // Create Feeling model
-class Feeling extends Model { }
+class Feeling extends Model {}
 
 // Define table columns and configuration
 Feeling.init(
@@ -11,33 +11,37 @@ Feeling.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
-    type: { // acceptable values: 'like', 'dislike', or 'wish'
+    type: {
+      // acceptable values: 'like', 'dislike', or 'wish'
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id'
-      }
+        model: "user",
+        key: "id",
+      },
     },
     book_isbn: {
       type: DataTypes.STRING,
       references: {
-        model: 'book',
-        key: 'isbn'
-      }
-    }
+        model: "book",
+        key: "isbn",
+      },
+    },
+    review: {
+      type: DataTypes.STRING
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'feeling'
+    modelName: "feeling",
   }
 );
 
