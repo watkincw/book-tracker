@@ -45,48 +45,34 @@
 </section>
 {{/if}}
 
-{{!-- likes --}}
-{{#if feeling.type = 'like' }} {{!-- If we have any feelings in the database that = like --}}
+{{!-- Display list of liked books for the user currently logged in. --}}
 <section>
-<h2>Books I Like</h2>
-<ol>
-  {{#each books as |book|}} {{!-- we will loop through the book list in the database --}}
-  <li>
-    {{book.title}} {{!-- Each Book Title will be listed in the section --}}
-  </li>
-  {{/each}}
-</ol>
+  <h2>Books I Liked Reading</h2>
+  <ul>
+    <li>
+      {{!-- Book.title --}}
+    </li>
+  </ul>
 </section>
-{{/if}}
 
-{{!-- dislikes --}}
-{{#if feeling.type = 'dislike' }} {{!-- If we have any feelings in the database that = dislike --}}
+{{!-- Display list of disliked books for the user currently logged in. --}}
 <section>
-<h2>Books I Dislike</h2>
-<ol>
-  {{#each books as |book|}} {{!-- we will loop through the book list in the database --}}
-  <li>
-    {{book.title}} {{!-- Each Book Title will be listed in the section --}}
-  </li>
-  {{/each}}
-</ol>
+  <h2>Books I Disliked Reading</h2>
+  <ul>
+    <li>
+      {{!-- Book.title --}}
+    </li>
+  </ul>
 </section>
-{{/if}}
 
-
-{{!-- Wishes --}}
-{{#if feeling.type = 'wish' }} {{!-- If we have any feelings in the database that = wish --}}
+{{!-- Display list of liked books for the user currently logged in. --}}
 <section>
-<h2>Books I Would Like To Read</h2>
-<ol>
-  {{#each books as |book|}} {{!-- we will loop through the book list in the database --}}
-  <li>
-    {{book.title}} {{!-- Each Book Title will be listed in the section --}}
-  </li>
-  {{/each}}
-</ol>
+  <h2>Books I Wish to Read</h2>
+  <ul>
+    <li>
+      {{!-- Book.title --}}
+    </li>
+  </ul>
 </section>
-{{/if}}
-
 
 <script src="/js/add-book.js"></script>
