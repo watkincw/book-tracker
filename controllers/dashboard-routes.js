@@ -2,38 +2,41 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Book, User, Feeling } = require('../models');
 const withAuth = require('../utils/auth');
-//localhost:3001/api/dashboard subaddress
+//localhost:3001/dashboard subaddress
 
 
 router.get ('/', withAuth, (req, res) => {
-    Book.findAll({
-        where: {
-            // use the ID from the session
-            user_id: req.session.user_id
-        },
-        attributes: [
-            'title',
-            'isbn',
-            'author'
-        ],
-        include: [
-            {
-                model: Feeling,
-                attributes: ['id', 'type', 'user_id', 'book_isbn'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
+  Book.findAll({
+    include: {
+      model: Feeling,
+      where: {
+        type: 'like',
+        user_id: req.session.user_id
+      }
+    }
+  })
+  Book.findAll({
+    include: {
+      model: Feeling,
+      where: {
+        type: 'dislike',
+        user_id: req.session.user_id
+      }
+    }
+  })
+  Book.findAll({
+    include: {
+      model: Feeling,
+      where: {
+        type: 'wish',
+        user_id: req.session.user_id
+      }
+    }
+  })
     .then (dbBookData => {
         // serialize data before passing to template
         const books = dbBookData.map(book => book.get({ plain: true }));
+        // console.log(dbBookData);
         res.render('dashboard', { books, loggedIn: true });
     })
     .catch(err => {
