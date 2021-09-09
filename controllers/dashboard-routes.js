@@ -29,25 +29,6 @@ router.get('/', withAuth, (req, res) => {
     include: {
       model: Feeling,
       where: {
-        type: 'like',
-        user_id: req.session.user_id
-      }
-    }
-  })
-  Book.findAll({
-    include: {
-      model: Feeling,
-      where: {
-        type: 'dislike',
-        user_id: req.session.user_id
-      }
-    }
-  })
-  Book.findAll({
-    include: {
-      model: Feeling,
-      where: {
-        type: 'wish',
         user_id: req.session.user_id
       }
     }
@@ -56,7 +37,10 @@ router.get('/', withAuth, (req, res) => {
       // serialize data before passing to template
       const books = dbBookData.map(book => book.get({ plain: true }));
       // console.log(dbBookData);
-      res.render('dashboard', { books, loggedIn: true });
+      const likes = books.filter(book => book.feelings[0].type === 'like');
+      const dislikes = books.filter(book => book.feelings[0].type === 'dislike');
+      const wishes = books.filter(book => book.feelings[0].type === 'wish');
+      res.render('dashboard', { books, likes, dislikes, wishes, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
