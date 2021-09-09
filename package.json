@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "seeds": "node seeds/index.js",
+    "watch": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -26,14 +27,13 @@
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
+    "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.12",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.4",
-    "jest": "^27.1.0",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.9"
+    "jest": "^27.1.0"
   }
 }
