@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Book Tracker</title>
-    <link href="../../public/stylesheets/tailwind.css" rel="stylesheet">
 	<link rel="stylesheet" href="../../public/stylesheets/style.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
 
 <body>
@@ -33,10 +33,10 @@
         </footer>
     </div>
 
-{{#if loggedIn}}
-<script src="/js/logout.js"></script>
-{{/if}}
-
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 </html>

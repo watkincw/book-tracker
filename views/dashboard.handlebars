@@ -15,18 +15,18 @@
         <input type="text" id="book-author" name="book-author" /><br>
     </div>
     <div>    
-        <input type="radio" id="like" name="book-feeling" value="like">
+        <input class="with-gap" type="radio" id="like" name="book-feeling" value="like">
         <label for="like">Loved It!</label>
-        <input type="radio" id="dislike" name="book-feeling" value="dislike">
+        <input class="with-gap" type="radio" id="dislike" name="book-feeling" value="dislike">
         <label for="dislike">Bad Book</label>
-        <input type="radio" id="wish" name="book-feeling" value="wish">
+        <input class="with-gap" type="radio" id="wish" name="book-feeling" value="wish">
         <label for="wish">Wish to Read</label>
     </div>
     <br>
-    {{!-- <div>
+    <div>
         <label for="book-review">Book Review</label>
         <input type="text" id="book-review" name="book-review" />
-    </div> --}}
+    </div>
     <button type="submit" id="btn">Add it in!</button>
   </form>
 </section>
@@ -51,7 +51,7 @@
   <ul>
     {{#each likes as |book|}}
     <li>
-      {{> book-info book}}
+      {{> book-title book}}
     </li>
     {{/each}}
   </ul>
@@ -63,7 +63,7 @@
   <ul>
     {{#each dislikes as |book|}}
     <li>
-      {{> book-info book}}
+      {{> book-title book}}
     </li>
     {{/each}}
   </ul>
@@ -75,7 +75,7 @@
   <ul>
     {{#each wishes as |book|}}
     <li>
-      {{> book-info book}}
+      {{> book-title book}}
     </li>
     {{/each}}
   </ul>
