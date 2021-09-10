@@ -6,31 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Book Tracker</title>
 	<link rel="stylesheet" href="../../public/stylesheets/style.css">
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
 
 <body>
+	<main>
+		{{{ body }}}
+	</main>
+
 	<div class="wrapper">
+		<footer>
+			<h1>Keep on reading!</h1>
+		</footer>
 		<header>
-			<h1>
-				<p>Book Tracker</p>
-			</h1>
 			<nav>
 				{{#if loggedIn}}
 				<a href="/logout"><button id="logout" class="btn-no-style">Logout</button></a>
 				{{else}}
-				<a href="/login" id="login-button"><button id="login" class="btn-no-style">Login</button></a>
+				<a href="/login" id="login-button"><button class="btn-no-style">Login</button></a>
 				{{/if}}
 			</nav>
 		</header>
-
-		<main>
-			{{{ body }}}
-		</main>
-		
-		<footer>
-			Keep on reading!
-		</footer>
 	</div>
 
 	{{#if loggedIn}}
@@ -38,6 +34,7 @@
 	{{/if}}
 
 	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="/js/login.js"></script>
 </body>
 
 </html>
