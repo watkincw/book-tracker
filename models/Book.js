@@ -6,28 +6,28 @@ class Book extends Model {}
 
 // Define table columns and configuration
 Book.init(
-  {
-    isbn: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      primaryKey: true
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: `book`
-  }
+	{
+		isbn: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			primaryKey: true
+		},
+		title: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		author: {
+			type: DataTypes.STRING,
+			allowNull: false
+		}
+	},
+	{
+		sequelize,
+		timestamps: false,
+		freezeTableName: true,
+		underscored: true,
+		modelName: `book`
+	}
 );
 
 module.exports = Book;

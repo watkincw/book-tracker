@@ -5,33 +5,33 @@ const Feeling = require('./Feeling');
 
 // create associations
 User.belongsToMany(Book, {
-  through: Feeling,
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+	through: Feeling,
+	foreignKey: 'user_id',
+	onDelete: 'SET NULL'
 });
 
 Book.belongsToMany(User, {
-  through: Feeling,
-  foreignKey: 'book_isbn',
-  onDelete: 'SET NULL'
+	through: Feeling,
+	foreignKey: 'book_isbn',
+	onDelete: 'SET NULL'
 });
 
 Feeling.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+	foreignKey: 'user_id',
+	onDelete: 'SET NULL'
 });
 
 Feeling.belongsTo(Book, {
-  foreignKey: 'book_isbn',
-  onDelete: 'SET NULL'
+	foreignKey: 'book_isbn',
+	onDelete: 'SET NULL'
 });
 
 User.hasMany(Feeling, {
-  foreignKey: 'user_id'
+	foreignKey: 'user_id'
 });
 
 Book.hasMany(Feeling, {
-  foreignKey: 'book_isbn'
+	foreignKey: 'book_isbn'
 });
 
 module.exports = { User, Book, Feeling };
