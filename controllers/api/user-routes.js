@@ -86,7 +86,8 @@ router.post('/login', (req, res) => {
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     });  
-});  
+});
+
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -120,7 +121,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE /api/users/1
-router.delete('/:id', (req, res) => {  
+router.delete('/:id', (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
