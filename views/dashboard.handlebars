@@ -3,29 +3,29 @@
 
 	<form class="new-book-form">
 		<div>
-				<label for="book-title">Book Title</label>
-				<input type="text" id="book-title" name="book-title" />
+			<label for="book-title">Book Title</label>
+			<input type="text" id="book-title" name="book-title" />
 		</div>
 		<div>
-				<label for="book-isbn">ISBN</label>
-				<input type="text" id="book-isbn" name="book-isbn" /><br>
+			<label for="book-isbn">ISBN</label>
+			<input type="text" id="book-isbn" name="book-isbn" /><br>
 		</div>
 		<div>    
-				<label for="book-author">Author</label>
-				<input type="text" id="book-author" name="book-author" /><br>
+			<label for="book-author">Author</label>
+			<input type="text" id="book-author" name="book-author" /><br>
 		</div>
 		<div>    
-				<input class="with-gap" type="radio" id="like" name="book-feeling" value="like">
-				<label for="like">Loved It!</label>
-				<input class="with-gap" type="radio" id="dislike" name="book-feeling" value="dislike">
-				<label for="dislike">Bad Book</label>
-				<input class="with-gap" type="radio" id="wish" name="book-feeling" value="wish">
-				<label for="wish">Wish to Read</label>
+			<input class="with-gap" type="radio" id="like" name="book-feeling" value="like">
+			<label for="like">Loved It!</label>
+			<input class="with-gap" type="radio" id="dislike" name="book-feeling" value="dislike">
+			<label for="dislike">Bad Book</label>
+			<input class="with-gap" type="radio" id="wish" name="book-feeling" value="wish">
+			<label for="wish">Wish to Read</label>
 		</div>
 		<br>
 		<div>
-				<label for="book-review">Book Review</label>
-				<input type="text" id="book-review" name="book-review" />
+			<label for="book-review">Book Review</label>
+			<input type="text" id="book-review" name="book-review" />
 		</div>
 		<button type="submit" id="btn">Add it in!</button>
 	</form>
@@ -38,7 +38,6 @@
 		{{#each books as |book|}}
 		<li>
 			{{> book-info book}}
-			{{!-- <a href="/dashboard/edit/{{book.isbn}}" class="edit-link">Edit Book</a> --}}
 		</li>
 		{{/each}}
 	</ol>
