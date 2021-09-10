@@ -3,7 +3,7 @@ const userRoutes = require('./user-routes');
 const bookRoutes = require('./book-routes');
 
 
-//localhost:3001/api is subaddress
+//localhost:3001/api routes
 
 //localhost:3001/api/users
 router.use('/users', userRoutes);
