@@ -1,7 +1,7 @@
 // import models
 const User = require('./User');
 const Book = require('./Book');
-const Feeling = require('./Feeling'); // through table
+const Feeling = require('./Feeling');
 
 // create associations
 User.belongsToMany(Book, {
