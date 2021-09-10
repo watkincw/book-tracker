@@ -23,8 +23,7 @@ async function newFormHandler(event) {
 	if (response.ok) {
 		document.location.replace('/dashboard');
 	} else {
-		alert(response.statusText);
-		alert('Duplicate ISBN');
+		alert(response.statusText + '. Duplicate ISBN. Is that book already on your list?');
 	}
 }
 
