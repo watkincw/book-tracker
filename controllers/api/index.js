@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
 const bookRoutes = require('./book-routes');
-//localhost:3001/api is subaddress
 
-//everything inside of this file should be res.json returns
+
+//localhost:3001/api is subaddress
 
 //localhost:3001/api/users
 router.use('/users', userRoutes);
