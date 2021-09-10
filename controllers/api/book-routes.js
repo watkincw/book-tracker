@@ -35,9 +35,9 @@ router.get('/:id', (req, res) => {
 
 // GET liked books for a given user
 /* SELECT * FROM Book
-	 INNER JOIN Feeling ON Book.isbn = Feeling.book_id
-	 WHERE Feeling.type = 'like'
-	 AND Feeling.user_id = ? */
+	INNER JOIN Feeling ON Book.isbn = Feeling.book_id
+	WHERE Feeling.type = 'like'
+	AND Feeling.user_id = ? */
 router.get('/users/:id/likes', (req, res) => {
 	Book.findAll({
 		include: [{
@@ -63,9 +63,9 @@ router.get('/users/:id/likes', (req, res) => {
 
 // GET disliked books for a given user
 /* SELECT * FROM Book
-	 INNER JOIN Feeling ON Book.isbn = Feeling.book_id
-	 WHERE Feeling.type = 'dislike'
-	 AND Feeling.user_id = ? */
+	INNER JOIN Feeling ON Book.isbn = Feeling.book_id
+	WHERE Feeling.type = 'dislike'
+	AND Feeling.user_id = ? */
 router.get('/users/:id/dislikes', (req, res) => {
 	Book.findAll({
 		include: [{
@@ -91,9 +91,9 @@ router.get('/users/:id/dislikes', (req, res) => {
 
 // GET wish list of books for a given user
 /* SELECT * FROM Book
-	 INNER JOIN Feeling ON Book.isbn = Feeling.book_id
-	 WHERE Feeling.type = 'wish'
-	 AND Feeling.user_id = ? */
+	INNER JOIN Feeling ON Book.isbn = Feeling.book_id
+	WHERE Feeling.type = 'wish'
+	AND Feeling.user_id = ? */
 router.get('/users/:id/wishes', (req, res) => {
 	Book.findAll({
 		include: [{
