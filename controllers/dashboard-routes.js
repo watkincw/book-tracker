@@ -17,11 +17,11 @@ router.post('/', withAuth, (req, res) => {
 		book_isbn: req.body.isbn, 
 		review: req.body.review
 	})
-		.then(dbBookData => res.json(dbBookData))
-		.catch(err => {
-			console.log(err);
-			res.status(500).json(err);
-		});
+	.then(dbBookData => res.json(dbBookData))
+	.catch(err => {
+		console.log(err);
+		res.status(500).json(err);
+	});
 });
 
 router.get('/', withAuth, (req, res) => {
@@ -33,19 +33,19 @@ router.get('/', withAuth, (req, res) => {
 			}
 		}
 	})
-		.then(dbBookData => {
-			// serialize data before passing to template
-			const books = dbBookData.map(book => book.get({ plain: true }));
-			// console.log(dbBookData);
-			const likes = books.filter(book => book.feelings[0].type === 'like');
-			const dislikes = books.filter(book => book.feelings[0].type === 'dislike');
-			const wishes = books.filter(book => book.feelings[0].type === 'wish');
-			res.render('dashboard', { books, likes, dislikes, wishes, loggedIn: true });
-		})
-		.catch(err => {
-			console.log(err);
-			res.status(500).json(err);
-		});
+	.then(dbBookData => {
+		// serialize data before passing to template
+		const books = dbBookData.map(book => book.get({ plain: true }));
+		// console.log(dbBookData);
+		const likes = books.filter(book => book.feelings[0].type === 'like');
+		const dislikes = books.filter(book => book.feelings[0].type === 'dislike');
+		const wishes = books.filter(book => book.feelings[0].type === 'wish');
+		res.render('dashboard', { books, likes, dislikes, wishes, loggedIn: true });
+	})
+	.catch(err => {
+		console.log(err);
+		res.status(500).json(err);
+	});
 });
 
 module.exports = router;
