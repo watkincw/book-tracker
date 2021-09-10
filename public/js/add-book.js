@@ -6,7 +6,6 @@ async function newFormHandler(event) {
 	const isbn = document.querySelector('input[name="book-isbn"]').value;
 	const author = document.querySelector('input[name="book-author"]').value;
 	const feeling = document.querySelector('input[name="book-feeling"]:checked').value;
-	const review = document.querySelector('input[name="book-review"]').value;
 
 	const response = await fetch('/dashboard', {
 		method: 'POST',
@@ -15,7 +14,6 @@ async function newFormHandler(event) {
 			isbn,
 			author,
 			feeling,
-			review
 		}),
 		headers: {
 			'Content-Type': 'application/json'
@@ -26,6 +24,7 @@ async function newFormHandler(event) {
 		document.location.replace('/dashboard');
 	} else {
 		alert(response.statusText);
+		alert('Duplicate ISBN');
 	}
 }
 
