@@ -18,37 +18,43 @@
 		</div>
 		<br>
 		<div>    
-			<input class="with-gap" type="radio" id="like" name="book-feeling" value="like">
-			<label for="like">Loved It!</label>
-			<input class="with-gap" type="radio" id="dislike" name="book-feeling" value="dislike">
-			<label for="dislike">Bad Book</label>
-			<input class="with-gap" type="radio" id="wish" name="book-feeling" value="wish">
-			<label for="wish">Wish to Read</label>
+			<label for="like">
+				<input class="with-gap" type="radio" id="like" name="book-feeling" value="like">
+				<span>Loved It!</span>
+			</label>
+			<label for="dislike">
+				<input class="with-gap" type="radio" id="dislike" name="book-feeling" value="dislike">
+				<span>Bad Book</span>
+			</label>
+			<label for="wish">
+				<input class="with-gap" type="radio" id="wish" name="book-feeling" value="wish">
+				<span>Wish To Read</span>
+			</label>
 		</div>
 		<br>
-		<button type="submit" id="btn">Add it in!</button>
+		<button type="submit" id="btn" class="waves-effect waves-light btn">Add it in!</button>
 	</form>
 </section>
 
 {{#if books.length}}
 <section>
-	<h2>Your Books</h2>
-	<ol>
+	<h3>Your Books</h3>
+	<ul class="collection">
 		{{#each books as |book|}}
-		<li>
+		<li class="collection-item avatar">
 			{{> book-info book}}
 		</li>
 		{{/each}}
-	</ol>
+	</ul>
 </section>
 {{/if}}
 
 {{!-- Display list of liked books for the user currently logged in. --}}
 <section>
-	<h2>Books I Liked Reading</h2>
-	<ul>
+	<h3>Books I Liked Reading</h3>
+	<ul class="collection">
 		{{#each likes as |book|}}
-		<li>
+		<li class="collection-item avatar">
 			{{> book-title book}}
 		</li>
 		{{/each}}
@@ -57,10 +63,10 @@
 
 {{!-- Display list of disliked books for the user currently logged in. --}}
 <section>
-	<h2>Books I Disliked Reading</h2>
-	<ul>
+	<h3>Books I Disliked Reading</h3>
+	<ul class="collection">
 		{{#each dislikes as |book|}}
-		<li>
+		<li class="collection-item avatar">
 			{{> book-title book}}
 		</li>
 		{{/each}}
@@ -69,10 +75,10 @@
 
 {{!-- Display list of liked books for the user currently logged in. --}}
 <section>
-	<h2>Books I Wish to Read</h2>
-	<ul>
+	<h3>Books I Wish to Read</h3>
+	<ul class="collection">
 		{{#each wishes as |book|}}
-		<li>
+		<li class="collection-item avatar">
 			{{> book-title book}}
 		</li>
 		{{/each}}
