@@ -25,4 +25,12 @@ router.get('/login', (req, res) => {
 
 });
 
+//localhost:3001/login
+router.get('/logout', (req, res)=>{
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+})
+
 module.exports = router;
