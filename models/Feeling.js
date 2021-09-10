@@ -32,9 +32,6 @@ Feeling.init(
         key: "isbn",
       },
     },
-    review: {
-      type: DataTypes.STRING
-    },
   },
   {
     sequelize,
