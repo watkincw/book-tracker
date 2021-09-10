@@ -16,22 +16,14 @@
 				<p>Book Tracker</p>
 			</h1>
 			<nav>
-				{{!-- {{#if loggedIn}}
-				<a href="/dashboard/">Dashboard</a>
-				<button id="logout" class="btn-no-style">Logout</button>
-				{{else}}
-				<a href=""></a>
-				<a href="/login">Login</a>
-				{{/if}} --}}
 				{{#if loggedIn}}
 				<a href="/logout"><button id="logout" class="btn-no-style">Logout</button></a>
 				{{else}}
-				<a href=""></a>
-				<a href="/login"><button id="login" class="btn-no-style">Login</button></a>
+				<a href="/login" id="login-button"><button id="login" class="btn-no-style">Login</button></a>
 				{{/if}}
 			</nav>
 		</header>
-		
+
 		<main>
 			{{{ body }}}
 		</main>
@@ -44,11 +36,6 @@
 	{{#if loggedIn}}
 	<script src="/js/logout.js"></script>
 	{{/if}}
-	{{!-- 
-	{{#if loggedOut}}
-	<script scr="/js/login.js"></script>
-	{{/if}}
-	--}}
 
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
