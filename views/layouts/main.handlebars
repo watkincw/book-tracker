@@ -6,51 +6,51 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Book Tracker</title>
 	<link rel="stylesheet" href="../../public/stylesheets/style.css">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <p>Book Tracker</p>
-      </h1>
-      <nav>
-        {{!-- {{#if loggedIn}}
-        <a href="/dashboard/">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href=""></a>
-        <a href="/login">Login</a>
-        {{/if}} --}}
-        {{#if loggedIn}}
-        <a href="/logout"><button id="logout" class="btn-no-style">Logout</button></a>
-        {{else}}
-        <a href=""></a>
-        <a href="/login"><button id="login" class="btn-no-style">Login</button></a>
-        {{/if}}
-      </nav>
-    </header>
-    
-    <main>
-      {{{ body }}}
-    </main>
-    
-    <footer>
-      Keep on reading!
-    </footer>
-  </div>
+	<div class="wrapper">
+		<header>
+			<h1>
+				<p>Book Tracker</p>
+			</h1>
+			<nav>
+				{{!-- {{#if loggedIn}}
+				<a href="/dashboard/">Dashboard</a>
+				<button id="logout" class="btn-no-style">Logout</button>
+				{{else}}
+				<a href=""></a>
+				<a href="/login">Login</a>
+				{{/if}} --}}
+				{{#if loggedIn}}
+				<a href="/logout"><button id="logout" class="btn-no-style">Logout</button></a>
+				{{else}}
+				<a href=""></a>
+				<a href="/login"><button id="login" class="btn-no-style">Login</button></a>
+				{{/if}}
+			</nav>
+		</header>
+		
+		<main>
+			{{{ body }}}
+		</main>
+		
+		<footer>
+			Keep on reading!
+		</footer>
+	</div>
 
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-  {{!-- 
-  {{#if loggedOut}}
-  <script scr="/js/login.js"></script>
-  {{/if}}
-  --}}
+	{{#if loggedIn}}
+	<script src="/js/logout.js"></script>
+	{{/if}}
+	{{!-- 
+	{{#if loggedOut}}
+	<script scr="/js/login.js"></script>
+	{{/if}}
+	--}}
 
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 </html>
