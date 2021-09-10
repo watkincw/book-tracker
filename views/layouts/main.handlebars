@@ -5,36 +5,36 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Book Tracker</title>
-	<link rel="stylesheet" href="../../public/stylesheets/style.css">
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
-	<main>
-		{{{ body }}}
-	</main>
-
-	<div class="wrapper">
-		<footer>
-			<h1>Keep on reading!</h1>
-		</footer>
+	<div class="container">
 		<header>
-			<nav>
+			<h1>
+				<p>Book Tracker</p>
+			</h1>
+			<div>
 				{{#if loggedIn}}
-				<a href="/logout"><button id="logout" class="btn-no-style">Logout</button></a>
+				<a href="/logout"><button id="logout" class="waves-effect waves-light btn">Logout</button></a>
 				{{else}}
-				<a href="/login" id="login-button"><button class="btn-no-style">Login</button></a>
+				<a href="/login" id="login-button"><button id="login" class="waves-effect waves-light btn">Login</button></a>
 				{{/if}}
-			</nav>
+			</div>
 		</header>
+		<main>
+			{{{ body }}}
+		</main>
+		<footer>
+			<p>Keep on Reading!</p>
+		</footer>
 	</div>
 
 	{{#if loggedIn}}
 	<script src="/js/logout.js"></script>
 	{{/if}}
 
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-	<script src="/js/login.js"></script>
-</body>
-
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	</body>
 </html>
