@@ -1,38 +1,40 @@
 <form class="login-form">
-    <h2> Welcome back!</h2>
+    <h3> Welcome back!</h3>
   
-    <div>
-		<label for="email-login">Email:</label>
-		<input type="text" id="email-login" />
+    <div class="input-field col s12">
+      <label for="email-login">Email</label>
+      <input type="email" id="email-login" class="validate" />
     </div>
-    <br>
-    <div>
-		<label for="password-login">Password:</label>
-		<input type="password" id="password-login" />
+
+    <div class="input-field col s12">
+      <label for="password-login">Password</label>
+      <input type="password" id="password-login" class="validate" />
     </div>
-    <br>
+
     <div>
-		<button type="submit" class="waves-effect waves-light btn">Login</button>
+		  <button type="submit" class="waves-effect waves-light btn">Login</button>
     </div>
 </form>
 <br>
+<br>
 <form class="signup-form">
-	<h2> New to Book Tracker?</h2>
-	<div>
-		<label for="username-signup">Username:</label>
-		<input type="text" id="username-signup" />
+	<h3> New to Book Tracker?</h3>
+
+	<div class="input-field col s12">
+    <input id="username-signup" type="text" class="validate">
+    <label for="username-signup">Username</label>
+  </div>
+  
+  <div class="input-field col s12">
+		<label for="password-signup">Password</label>
+		<input type="password" id="password-signup" class="validate" />
 	</div>
-	<br>
-	<div>
-		<label for="email-signup">Email:</label>
-		<input type="text" id="email-signup" />
-	</div>
-	<br>
-	<div>
-		<label for="password-signup">Password:</label>
-		<input type="password" id="password-signup" />
-	</div>
-	<br>
+  
+  <div class="input-field col s12">
+    <input id="email-signup" type="email" class="validate">
+    <label for="email-signup">Email</label>
+  </div>
+
 	<div>
 		<button type="submit" class="waves-effect waves-light btn">Signup</button>
 	</div>

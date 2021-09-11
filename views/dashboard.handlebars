@@ -2,19 +2,19 @@
 	<h2>Add a book!</h2>
 
 	<form class="new-book-form">
-		<div>
+		<div class="input-field col s12">
 			<label for="book-title">Book Title</label>
-			<input type="text" id="book-title" name="book-title" />
+			<input type="text" id="book-title" name="book-title" class="validate" />
 		</div>
 		<br>
-		<div>
+		<div class="input-field col s12">
 			<label for="book-isbn">ISBN</label>
-			<input type="text" id="book-isbn" name="book-isbn" /><br>
+			<input type="text" id="book-isbn" name="book-isbn" class="validate" /><br>
 		</div>
 		<br>
-		<div>    
+		<div class="input-field col s12">    
 			<label for="book-author">Author</label>
-			<input type="text" id="book-author" name="book-author" /><br>
+			<input type="text" id="book-author" name="book-author" class="validate" /><br>
 		</div>
 		<br>
 		<div>    
@@ -49,20 +49,59 @@
 </section>
 {{/if}}
 
-{{!-- Display list of liked books for the user currently logged in. --}}
-<section>
-	<h3>Books I Liked Reading</h3>
-	<ul class="collection">
+<div class="row">
+  {{!-- Display list of liked books for the user currently logged in. --}}
+  <div class="col s12 m6 l4">
+    <h5>
+      <i class="material-icons">thumb_up</i>
+      Books I Liked
+    </h5>
 		{{#each likes as |book|}}
 		<li class="collection-item avatar">
 			{{> book-title book}}
 		</li>
 		{{/each}}
+  </div>
+  {{!-- Display list of disliked books for the user currently logged in. --}}
+  <div class="col s12 m6 l4">
+    <h5>
+      <i class="material-icons">thumb_down</i>
+      Books I Disliked
+    </h5>
+		{{#each dislikes as |book|}}
+		<li class="collection-item avatar">
+			{{> book-title book}}
+		</li>
+		{{/each}}
+  </div>
+  {{!-- Display list of liked books for the user currently logged in. --}}
+  <div class="col s12 m6 l4">
+    <h5>
+      <i class="material-icons">local_library</i>
+      Books I Would Like To Read
+    </h5>
+		{{#each wishes as |book|}}
+		<li class="collection-item avatar">
+			{{> book-title book}}
+		</li>
+		{{/each}}
+  </div>
+</div>
+
+{{!-- Display list of liked books for the user currently logged in. --}}
+{{!-- <section>
+	<h3>Books I Liked Reading</h3>
+	<ul class="collection">
+    {{#each likes as |book|}}
+		<li class="collection-item avatar">
+			{{> book-title book}}
+		</li>
+		{{/each}}
 	</ul>
-</section>
+</section> --}}
 
 {{!-- Display list of disliked books for the user currently logged in. --}}
-<section>
+{{!-- <section>
 	<h3>Books I Disliked Reading</h3>
 	<ul class="collection">
 		{{#each dislikes as |book|}}
@@ -71,10 +110,10 @@
 		</li>
 		{{/each}}
 	</ul>
-</section>
+</section> --}}
 
 {{!-- Display list of liked books for the user currently logged in. --}}
-<section>
+{{!-- <section>
 	<h3>Books I Wish to Read</h3>
 	<ul class="collection">
 		{{#each wishes as |book|}}
@@ -83,6 +122,6 @@
 		</li>
 		{{/each}}
 	</ul>
-</section>
+</section> --}}
 
 <script src="/js/add-book.js"></script>
