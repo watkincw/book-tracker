@@ -4,10 +4,10 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Tests](#tests)
 * [Contributions](#contributing)
 * [Github](#github)
-* [Tests](#tests)
-* [Questions](#questions)
+
 
 <a name='description'></a>
 ## Description
@@ -35,6 +35,9 @@ NPM packages used:
   - bcrypt
   - nodemon
 
+<a name='tests'></a>
+## Tests
+Seed files are included and allowed for easier testing during production using the Insomnia Core app. We found Nodemon to be a helpful tool during development as it allowed for faster and easier testing through the browser as it refreshes node.js when any change are made in the files.
 
 <a name='contributions'></a>
 ## Contributions
@@ -44,6 +47,3 @@ This project was created by a team of fresh developers: Thomas, Bri, Jeff, and C
 ## Github
 https://github.com/https://github.com/ThManHimself/book-tracker.git
 
-<a name='tests'></a>
-## Tests
-Seed files are included and allowed for easier testing during production using the Insomnia Core app. We found Nodemon to be a helpful tool during development as it allowed for faster and easier testing through the browser as it refreshes node.js when any change are made in the files.
