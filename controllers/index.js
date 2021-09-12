@@ -11,7 +11,4 @@ router.use('/api', dataRoutes);
 // everything behind here should be data based. therefore res.json()
 router.use('/dashboard', dashboardRoutes);
 
-
-
-
 module.exports = router;
