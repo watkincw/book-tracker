@@ -57,4 +57,4 @@ This project was created by a team of fresh developers: Thomas, Bri, Jeff, and C
 
 <a name='github'></a>
 ## Github
-https://github.com/https://github.com/ThManHimself/book-tracker.git
+https://github.com/ThManHimself/book-tracker.git
